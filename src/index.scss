@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@import "/src/Styles/_variables";
+
+@import "/src/Styles/mediaQuery";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: $mainFont;
+}
+
+._container {
+  padding: 1rem 10%;
+  @include for-size(phone-only) {
+    padding: 1rem 5%;
+  }
+}
+
+._titleText {
+  font-family: $mainFont;
+  font-size: 2rem;
+  font-weight: 600;
+  color: black;
+}
+
+._headerText {
+  font-family: $mainFont;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: black;
+}
+
+._subText {
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  color: black;
+}
