@@ -1,0 +1,30 @@
+.LoginHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #f6f8f9;
+
+  &__brandContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      display: flex;
+      color: #b0babf;
+    }
+  }
+
+  &__profileContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #b0babf;
+  }
+}
