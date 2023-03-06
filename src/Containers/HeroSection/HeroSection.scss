@@ -1,0 +1,52 @@
+@import "/src/Styles/_variables";
+@import "/src/Styles/_mediaQuery";
+
+.HeroSection {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+  color: white;
+  background: $colorLandingBG;
+  @include for-size(phone-only) {
+    flex-direction: column;
+  }
+
+  &__ContentBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .title {
+      background: linear-gradient(
+        113.47deg,
+        #ff3337 0.23%,
+        #f8ca53 35.14%,
+        #009a8f 58.73%,
+        rgba(255, 255, 255, 0) 110.11%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      font-weight: 800;
+      font-size: 5rem;
+      line-height: 120%;
+      text-transform: uppercase;
+      margin: 0rem;
+    }
+    .subTitle {
+      font-weight: 400;
+      font-size: 2.5rem;
+    }
+  }
+
+  &__ImgBox {
+    flex: 1;
+    padding: 1rem;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

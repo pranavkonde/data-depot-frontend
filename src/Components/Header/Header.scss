@@ -1,0 +1,29 @@
+@import "/src/Styles/_variables";
+@import "/src/Styles/_mediaQuery";
+.Header {
+  width: 100%;
+  min-height: 100px;
+  background: $colorLandingBG;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__logo {
+    width: fit-content;
+    height: auto;
+    img {
+      width: 100px;
+      height: auto;
+    }
+  }
+
+  &__loginContainer {
+    button {
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border: 1px solid white;
+      background: transparent;
+      border-radius: 10px;
+    }
+  }
+}

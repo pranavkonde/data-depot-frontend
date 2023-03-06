@@ -1,9 +1,14 @@
 import React from 'react';
+import { Header } from '../../Components';
+import { HeroSection } from '../../Containers';
 import './LandingPage.scss';
 
 function LandingPage() {
   return (
-    <div>LandingPage</div>
+       <div className="LandingPage">
+      <Header />
+      <HeroSection/>
+    </div>
   )
 }
 
