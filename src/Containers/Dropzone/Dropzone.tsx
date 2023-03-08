@@ -9,13 +9,14 @@ function Dropzone() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div {...getRootProps()} className="Dropzone" >
+    <div {...getRootProps()} className={`Dropzone ${isDragActive 
+    ? 'active':''}`} >
       <input {...getInputProps()} />
-      {isDragActive ? (
-        <p>Drop the files here ...</p>
-      ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
-      )}
+      <div className="Dropzone__contentBox">
+        <img src="/uploadIcon.png" alt="" />
+        <p>Browse File or Drag & Drop</p>
+      </div>
+
     </div>
   );
 }

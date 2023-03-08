@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Dashboard, LandingPage, LoginLayout, UploadNew } from "./Pages";
+import { FileView } from "./Pages/LoginPanel";
 import AuthGaurd from "./Utils/AuthGaurd";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         >
           <Route index element={<Dashboard />} />
           <Route path="upload-new" element={<UploadNew />} />
+          <Route path="view-file" element={<FileView />} />
         </Route>
       </Routes>
     </div>

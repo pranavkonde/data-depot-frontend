@@ -3,5 +3,12 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+
+    .disclaimer {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #667085;
+      margin-top: 2rem;
+    }
   }
 }
