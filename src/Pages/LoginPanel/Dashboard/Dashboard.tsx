@@ -1,23 +1,19 @@
-import React from 'react';
-import { FilterTab, StatBox } from '../../../Components';
-import { TableContainer } from '../../../Containers';
-import './Dashboard.scss';
+import React from "react";
+import { FilterTab, Pagination, StatBox, UploadBar } from "../../../Components";
+import { TableContainer } from "../../../Containers";
+import "./Dashboard.scss";
 
 function Dashboard() {
   return (
-    <div className='Dashboard _container'>
-        <p className="Dashboard__title">Dashboard</p>
-        <div className="Dashboard__StatContainer">
-            <StatBox/>
-        </div>
-
-        <FilterTab/>
-
-        <TableContainer/>
-
-
+    <div className="Dashboard _container">
+      <p className="_titleText">Dashboard</p>
+      <StatBox />
+      <FilterTab />
+      <TableContainer />
+      <Pagination />
+      <UploadBar/>
     </div>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

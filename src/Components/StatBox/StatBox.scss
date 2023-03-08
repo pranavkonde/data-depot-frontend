@@ -1,14 +1,25 @@
+@import "/src/Styles/_variables";
+@import "/src/Styles/_mediaQuery";
+
 .StatBox {
   display: flex;
   flex-direction: row;
   width: 100%;
   gap: 2rem;
+  margin: 2rem 0rem;
+
+  @include for-size(phone-only) {
+    flex-direction: column;
+  }
 
   &__Card {
     width: 80%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    @include for-size(phone-only) {
+      width: 100%;
+    }
     .title {
       font-weight: 600;
       font-size: 1.2rem;

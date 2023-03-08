@@ -1,0 +1,26 @@
+.UploadBar {
+  margin: 1rem 0rem;
+  padding: 1rem;
+
+  &__processBar {
+    .wrapper {
+      height: 10px;
+    }
+
+    .container {
+      background: #d9d9d9;
+      border-radius: 10px;
+      height: inherit;
+    }
+
+    .barCompleted {
+      background: #7f56d9;
+      border-radius: 10px;
+      height: inherit;
+    }
+
+    .label {
+      display: none;
+    }
+  }
+}

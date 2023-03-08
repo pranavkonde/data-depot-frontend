@@ -28,9 +28,18 @@ body {
 
 ._titleText {
   font-family: $mainFont;
-  font-size: 2rem;
+  text-align: left;
   font-weight: 600;
+  font-size: 1.2rem;
   color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  span {
+    font-size: 2.2rem;
+    display: flex;
+    cursor: pointer;
+  }
 }
 
 ._headerText {

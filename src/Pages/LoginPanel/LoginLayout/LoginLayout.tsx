@@ -7,7 +7,9 @@ function LoginLayout() {
   return (
     <div className="LoginLayout">
       <LoginHeader />
-      <Outlet />
+      <div className="LoginLayout__outletContainer">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

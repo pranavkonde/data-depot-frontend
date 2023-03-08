@@ -1,6 +1,11 @@
+@import "/src/Styles/_variables";
+@import "/src/Styles/_mediaQuery";
 .TableContainer {
   margin: 1rem 0rem;
   padding: 1rem 0rem;
+  @include for-size(phone-only) {
+    overflow-x: scroll;
+  }
   table {
     width: 100%;
     border-collapse: collapse;
