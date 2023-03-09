@@ -5,6 +5,8 @@ import './index.scss'
 import { BrowserRouter } from "react-router-dom";
 import  {NavigationSetter} from "./Utils/GlobalNavigation/NavigationSetter";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 

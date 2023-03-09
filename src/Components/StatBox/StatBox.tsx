@@ -1,4 +1,5 @@
 import React from "react";
+import Navigator from "../../Utils/GlobalNavigation/navigationHistory";
 import "./StatBox.scss";
 
 function StatBox() {
@@ -25,7 +26,9 @@ function StatBox() {
       </div>
       <div className="StatBox__ButtonBox">
 
-        <button className="_buttonFill">
+        <button className="_buttonFill" onClick={()=>{
+          Navigator.push('/dashboard/upload-new')
+        }}>
             Upload New Button
         </button>
         <button className="_buttonOutline">

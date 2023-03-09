@@ -1,4 +1,5 @@
 import React from "react";
+import Navigator from "../../Utils/GlobalNavigation/navigationHistory";
 import "./TableContainer.scss";
 
 function TableContainer() {
@@ -18,7 +19,9 @@ function TableContainer() {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr onClick={()=>{
+            Navigator.push('/dashboard/view-file/334')
+          }}>
             <td>#3066</td>
             <td>Abcd</td>
             <td>
