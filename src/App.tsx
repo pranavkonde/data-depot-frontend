@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/login" element={<LandingPage />}></Route>
         <Route
           path="/dashboard"
           element={
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="upload-new" element={<UploadNew />} />
           <Route path="view-file/:id" element={<FileView />} />
+        
         </Route>
       </Routes>
     </div>
