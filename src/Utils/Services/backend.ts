@@ -46,3 +46,13 @@ export const uploadFile = async (
     notify(`Something Went Wrong : ${error}`, "error");
   }
 };
+
+export const getUserDetails = async () => {
+  try {
+    let response = await axiosInstance.get(`${BaseUrl}data/user_details`);
+    console.log(response);
+    return response;
+  } catch (error) {
+    notify("Something went wrong", "error");
+  }
+};

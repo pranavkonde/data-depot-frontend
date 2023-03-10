@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Header } from "../../Components";
+import { Footer, Header } from "../../Components";
 import { HeroSection, LoginDialog } from "../../Containers";
 import "./LandingPage.scss";
 import { Dialog } from "@material-ui/core";
@@ -25,6 +25,7 @@ function LandingPage() {
     <div className="LandingPage">
       <Header setLoginDialog={setLoginDialog} />
       <HeroSection />
+      <Footer/>
       <Dialog open={loginDialog} onClose={() => {
         setLoginDialog(false);
       }}>

@@ -42,3 +42,13 @@ export async function logout() {
   localStorage.removeItem("authData");
   Navigator.push("/");
 }
+
+export function getAccessToken() {
+  let message = null;
+  if (isLogin()) {
+    message = JSON.parse(localStorage?.getItem("authData") || "{}")[
+      "accessToken"
+    ];
+  }
+  return message;
+}

@@ -1,12 +1,11 @@
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
+import { getAccessToken } from "./Auth";
 
 const axiosInstance = axios.create();
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InJhdmlzaDE3MjkiLCJhdmF0YXJVUkwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvMzExODk0MTg_dj00IiwiaWF0IjoxNjc4Mzk4OTU5LCJleHAiOjE2ODAxMjY5NTl9.DFYTWcxJ95y3Rpq97a8HE4l5HdXJoM6ieBe9DK1ZMTE";
-
+    const token = getAccessToken();
     config.headers["Authorization"] = "Bearer " + token;
     return config;
   },

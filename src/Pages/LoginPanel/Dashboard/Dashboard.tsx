@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { FilterTab, Pagination, StatBox, UploadBar } from "../../../Components";
 import { TableContainer } from "../../../Containers";
-import { getUploads } from "../../../Utils/Services/backend";
+import { getUploads, getUserDetails } from "../../../Utils/Services/backend";
 import "./Dashboard.scss";
 
 function Dashboard() {
  const [filesData, setFilesData] = useState<any[]>([]); 
+ const [userDetails, setUserDetails] = useState<any[]>([]); 
 
 useEffect(() => {
   (async () => {
     const response = await getUploads(1);
-    console.log(response);
     if (response !== undefined && response?.status === 200) {
       setFilesData(response.data ?? []); 
+    }
+    const userDetail = await getUserDetails();
+    
+    if (userDetail !== undefined && userDetail?.status === 200) {
+      setUserDetails(userDetail.data ?? {}); 
     }
   })();
 }, []);
@@ -20,7 +25,7 @@ useEffect(() => {
   return (
     <div className="Dashboard _container">
       <p className="_titleText">Dashboard</p>
-      <StatBox />
+      <StatBox userDetails={userDetails} filesData={filesData} />
       <FilterTab />
       <TableContainer filesData={filesData} />
       <Pagination />
