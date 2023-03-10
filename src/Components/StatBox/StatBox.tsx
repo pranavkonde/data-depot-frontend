@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import Navigator from "../../Utils/GlobalNavigation/navigationHistory";
 import { bytesToString } from "../../Utils/Services/Other";
 import "./StatBox.scss";
+import CsvDownloadButton from 'react-json-to-csv'
+
 
 interface Props {
   userDetails: any;
   filesData: any[];
+  filteredFilesData: any[];
 }
 
-const StatBox: React.FC<Props> = ({ userDetails, filesData }) => {
+const StatBox: React.FC<Props> = ({ userDetails, filesData,filteredFilesData }) => {
   const [statData, setStatData] = useState<any>({});
   useEffect(() => {
     let activeFiles = filesData.filter(
@@ -62,6 +65,10 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData }) => {
         >
           Upload New File
         </button>
+        <CsvDownloadButton className="_buttonOutline" data={filteredFilesData} >
+          Download CSV 
+        </CsvDownloadButton>
+
         {/* <button className="_buttonOutline">Dummy Button</button> */}
       </div>
     </div>

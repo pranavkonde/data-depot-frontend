@@ -26,6 +26,12 @@ export async function login(code: string) {
   }
 }
 
+export const setUserName = (userName: string) => {
+  let authData = JSON.parse(localStorage.getItem("authData") || "{}");
+  authData["userName"] = userName;
+  localStorage.setItem("authData", JSON.stringify({ authData }));
+};
+
 export function isLogin() {
   let authData = JSON.parse(localStorage.getItem("authData") || "{}");
   if (authData?.["expirationDate"] && authData?.["accessToken"]) {

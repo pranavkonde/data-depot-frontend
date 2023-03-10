@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FilterTab, Pagination, StatBox, UploadBar } from "../../../Components";
 import { TableContainer } from "../../../Containers";
+import { setUserName } from "../../../Utils/Services/Auth";
 import { getUploads, getUserDetails } from "../../../Utils/Services/backend";
 import "./Dashboard.scss";
 
@@ -19,6 +20,8 @@ useEffect(() => {
     
     if (userDetail !== undefined && userDetail?.status === 200) {
       setUserDetails(userDetail.data ?? {}); 
+      
+      // setUserName(userDetail?.data)
     }
   })();
 }, []);
@@ -26,7 +29,7 @@ useEffect(() => {
   return (
     <div className="Dashboard _container">
       <p className="_titleText">Dashboard</p>
-      <StatBox userDetails={userDetails} filesData={filesData} />
+      <StatBox userDetails={userDetails} filesData={filesData} filteredFilesData={filteredFilesData} />
       <FilterTab filesData={filesData} setFilteredFilesData={setFilteredFilesData}/>
       <TableContainer filesData={filteredFilesData} />
       <Pagination />
