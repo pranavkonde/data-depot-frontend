@@ -20,5 +20,10 @@
   &__buttonContainer {
     display: flex;
     gap: 1rem;
+
+    button[disabled] {
+      opacity: 0.6;
+      cursor: auto;
+    }
   }
 }

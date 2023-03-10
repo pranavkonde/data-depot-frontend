@@ -57,6 +57,40 @@
           font-weight: 400;
           font-size: 0.9rem;
           border-bottom: 1px solid #eaecf0;
+
+          .active,
+          .expired {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: fit-content;
+          }
+
+          .active {
+            background: #ecfdf3;
+            border-radius: 1rem;
+            padding: 2px 8px 2px 6px;
+            text-align: center;
+            color: #027a48;
+            font-size: 1rem;
+          }
+
+          .expired {
+            padding: 2px 8px 2px 6px;
+            background: #f2f4f7;
+            border-radius: 1rem;
+            color: #344054;
+            font-size: 1rem;
+          }
+
+          .icon {
+            color: #667085;
+            font-size: 1.2rem;
+            margin: 0rem 0.3rem;
+            &:hover {
+              color: #3f4552;
+            }
+          }
         }
       }
     }

@@ -1,15 +1,30 @@
 import React from "react";
 import "./FileDetailContainer.scss";
 import { MdOutlineContentCopy } from "react-icons/md";
+import { useLocation } from "react-router-dom";
+import {
+  bytesToString,
+  copyToClipboard,
+  downloadFileFromURL,
+} from "../../Utils/Services/Other";
+import moment from "moment";
 
 function FileDetailContainer() {
+  const { state } = useLocation();
+  const data = state?.data;
+
   return (
     <div className="FileDetailContainer">
       <div className="detailBox">
         <p className="detailBox__label">File ID</p>
         <div className="detailBox__infoBox">
-          <p className="text">Lorem, ipsum dolor.</p>
-          <span className="icon">
+          <p className="text">{data?.id}</p>
+          <span
+            className="icon"
+            onClick={() => {
+              copyToClipboard(data?.id);
+            }}
+          >
             <MdOutlineContentCopy />
           </span>
         </div>
@@ -17,8 +32,13 @@ function FileDetailContainer() {
       <div className="detailBox">
         <p className="detailBox__label">File Name</p>
         <div className="detailBox__infoBox">
-          <p className="text">Lorem, ipsum dolor.</p>
-          <span className="icon">
+          <p className="text">{data?.fileName}</p>
+          <span
+            className="icon"
+            onClick={() => {
+              copyToClipboard(data?.fileName);
+            }}
+          >
             <MdOutlineContentCopy />
           </span>
         </div>
@@ -26,8 +46,13 @@ function FileDetailContainer() {
       <div className="detailBox">
         <p className="detailBox__label">Piece CID</p>
         <div className="detailBox__infoBox">
-          <p className="text">Lorem, ipsum dolor.</p>
-          <span className="icon">
+          <p className="text">{data?.pieceCid}</p>
+          <span
+            className="icon"
+            onClick={() => {
+              copyToClipboard(data?.pieceCid);
+            }}
+          >
             <MdOutlineContentCopy />
           </span>
         </div>
@@ -35,8 +60,13 @@ function FileDetailContainer() {
       <div className="detailBox">
         <p className="detailBox__label">Payload CID</p>
         <div className="detailBox__infoBox">
-          <p className="text">Lorem, ipsum dolor.</p>
-          <span className="icon">
+          <p className="text">{data?.payloadCid}</p>
+          <span
+            className="icon"
+            onClick={() => {
+              copyToClipboard(data?.payloadCid);
+            }}
+          >
             <MdOutlineContentCopy />
           </span>
         </div>
@@ -46,8 +76,13 @@ function FileDetailContainer() {
         <div className="detailBox">
           <p className="detailBox__label">File Size</p>
           <div className="detailBox__infoBox">
-            <p className="text">Lorem, ipsum dolor.</p>
-            <span className="icon">
+            <p className="text">{bytesToString(data?.fileSize)}</p>
+            <span
+              className="icon"
+              onClick={() => {
+                copyToClipboard(bytesToString(data?.fileSize));
+              }}
+            >
               <MdOutlineContentCopy />
             </span>
           </div>
@@ -56,8 +91,13 @@ function FileDetailContainer() {
         <div className="detailBox">
           <p className="detailBox__label">Piece Size</p>
           <div className="detailBox__infoBox">
-            <p className="text">Lorem, ipsum dolor.</p>
-            <span className="icon">
+            <p className="text">{bytesToString(data?.pieceSize)}</p>
+            <span
+              className="icon"
+              onClick={() => {
+                copyToClipboard(bytesToString(data?.pieceSize));
+              }}
+            >
               <MdOutlineContentCopy />
             </span>
           </div>
@@ -67,8 +107,15 @@ function FileDetailContainer() {
         <div className="detailBox">
           <p className="detailBox__label">Upload Date</p>
           <div className="detailBox__infoBox">
-            <p className="text">Lorem, ipsum dolor.</p>
-            <span className="icon">
+            <p className="text">
+              {moment(data?.createdAt).format("DD-MM-YYYY h:mm:ss")}
+            </p>
+            <span
+              className="icon"
+              onClick={() => {
+                moment(data?.createdAt).format("DD-MM-YYYY h:mm:ss");
+              }}
+            >
               <MdOutlineContentCopy />
             </span>
           </div>
@@ -77,8 +124,21 @@ function FileDetailContainer() {
         <div className="detailBox">
           <p className="detailBox__label">Expire Date</p>
           <div className="detailBox__infoBox">
-            <p className="text">Lorem, ipsum dolor.</p>
-            <span className="icon">
+            <p className="text">
+              {moment(data?.createdAt)
+                .add(7, "days")
+                .format("DD-MM-YYYY h:mm:ss")}
+            </p>
+            <span
+              className="icon"
+              onClick={() => {
+                copyToClipboard(
+                  moment(data?.createdAt)
+                    .add(7, "days")
+                    .format("DD-MM-YYYY h:mm:ss")
+                );
+              }}
+            >
               <MdOutlineContentCopy />
             </span>
           </div>
@@ -88,22 +148,32 @@ function FileDetailContainer() {
       <div className="detailBox">
         <p className="detailBox__label">URL</p>
         <div className="detailBox__infoBox">
-          <p className="text">Lorem, ipsum dolor.</p>
-          <span className="icon">
+          <p className="text">{`https://data.lighthouse.storage/api/download/download_car?piece_cid=${data?.pieceCid}.car`}</p>
+          <span className="icon" onClick={()=>{
+            copyToClipboard(`https://data.lighthouse.storage/api/download/download_car?piece_cid=${data?.pieceCid}.car`)
+          }}>
             <MdOutlineContentCopy />
           </span>
         </div>
       </div>
 
       <p className="disclaimer">
-        *This is the system generated data you can only copy it 
+        *This is the system generated data you can only copy it
       </p>
 
       <div className="FileDetailContainer__buttonContainer">
-
-        <button className="_buttonOutline">Delete File</button>
-        <button className="_buttonFill">Download</button>
-
+        {/* <button className="_buttonOutline" >Delete File</button> */}
+        <button
+          className="_buttonFill"
+          onClick={() => {
+            downloadFileFromURL(
+              `https://data.lighthouse.storage/api/download/download_car?piece_cid=${data?.pieceCid}.car`,
+              data?.fileName+'.car'
+            );
+          }}
+        >
+          Download
+        </button>
       </div>
     </div>
   );

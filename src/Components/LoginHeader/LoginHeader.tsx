@@ -8,14 +8,14 @@ function LoginHeader() {
   return (
     <div className='LoginHeader _container'>
         <div className="LoginHeader__brandContainer">
-            <span>
+            {/* <span>
                 <HiOutlineMenu/>
-            </span>
-            <img src="/Logo.png" alt="logo" />
+            </span> */}
+            <img src="/filecoin_dark.png" alt="logo" />
         </div>
         <div className="LoginHeader__profileContainer">
             <FaUser/>
-            <GoBell/>
+            {/* <GoBell/> */}
         </div>
     </div>
   )

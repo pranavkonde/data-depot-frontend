@@ -22,6 +22,8 @@ const FilterTab: React.FC<Props> = ({ filesData, setFilteredFilesData }) => {
             .includes(filterInput?.current?.value?.toLowerCase())
         )
       );
+    }else{
+      setFilteredFilesData(filesData);
     }
   };
 
@@ -46,7 +48,7 @@ const FilterTab: React.FC<Props> = ({ filesData, setFilteredFilesData }) => {
     }
 
     return () => {};
-  }, [activeTab]);
+  }, [activeTab,filesData]);
 
   return (
     <div className="FilterTab _card">

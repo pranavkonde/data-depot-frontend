@@ -60,9 +60,9 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData }) => {
             Navigator.push("/dashboard/upload-new");
           }}
         >
-          Upload New Button
+          Upload New File
         </button>
-        <button className="_buttonOutline">Dummy Button</button>
+        {/* <button className="_buttonOutline">Dummy Button</button> */}
       </div>
     </div>
   );
