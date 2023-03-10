@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.scss';
-import {BsCaretDownFill} from 'react-icons/bs';
-import {CgProfile} from 'react-icons/cg';
+
 
 interface HeaderProps {
   setLoginDialog: React.Dispatch<React.SetStateAction<boolean>>;

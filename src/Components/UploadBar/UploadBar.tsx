@@ -2,13 +2,17 @@ import React from "react";
 import "./UploadBar.scss";
 import ProgressBar from "@ramonak/react-progress-bar";
 
-function UploadBar() {
+interface Props {
+  uploadProgress: number;
+}
+
+const UploadBar: React.FC<Props> = ({ uploadProgress }) => {
   return (
     <div className="UploadBar _card">
       <p className="UploadBar__title">Uploading Files</p>
       <div className="UploadBar__processBar">
         <ProgressBar
-          completed={60}
+          completed={uploadProgress}
           maxCompleted={100}
           isLabelVisible={false}
           height="10px"
@@ -19,6 +23,6 @@ function UploadBar() {
       </div>
     </div>
   );
-}
+};
 
 export default UploadBar;

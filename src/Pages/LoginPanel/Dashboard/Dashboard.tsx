@@ -10,7 +10,8 @@ function Dashboard() {
 useEffect(() => {
   (async () => {
     const response = await getUploads(1);
-    if (response !== undefined) {
+    console.log(response);
+    if (response !== undefined && response?.status === 200) {
       setFilesData(response.data ?? []); 
     }
   })();
@@ -21,9 +22,9 @@ useEffect(() => {
       <p className="_titleText">Dashboard</p>
       <StatBox />
       <FilterTab />
-      <TableContainer />
+      <TableContainer filesData={filesData} />
       <Pagination />
-      <UploadBar />
+      {/* <UploadBar /> */}
     </div>
   );
 }
