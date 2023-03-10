@@ -35,7 +35,7 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData }) => {
           <div className="detailBox_stat">
             <p className="label">Total Data Uploaded</p>
             <p className="stat">
-              {statData?.totalData?.split(" ")[0]}
+              {statData?.totalData?.split(" ")[0]}&nbsp;
               <small>{statData?.totalData?.split(" ")[1]}</small>
             </p>
           </div>

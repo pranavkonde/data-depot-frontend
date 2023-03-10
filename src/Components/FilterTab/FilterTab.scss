@@ -35,6 +35,15 @@
       &:nth-child(1) {
         border-radius: 8px 0px 0px 8px;
       }
+
+      &:hover {
+        transform: scale(1.02);
+        background: #f9fafb;
+      }
+    }
+
+    .active {
+      background: #f9fafb;
     }
   }
 
