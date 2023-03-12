@@ -9,6 +9,7 @@ import {
   getCarLink,
 } from "../../Utils/Services/Other";
 import moment from "moment";
+import { deleteFile } from "../../Utils/Services/backend";
 
 function FileDetailContainer() {
   const { state } = useLocation();
@@ -164,7 +165,9 @@ function FileDetailContainer() {
       </p>
 
       <div className="FileDetailContainer__buttonContainer">
-        <button className="_buttonOutline" >Delete File</button>
+        <button className="_buttonOutline" onClick={()=>{
+          deleteFile(data?.id)
+        }}>Delete File</button>
         <button
           className="_buttonFill"
           onClick={() => {
