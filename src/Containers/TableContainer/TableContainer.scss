@@ -11,7 +11,7 @@
     border-collapse: collapse;
     border-radius: 8px;
     thead {
-      background: #f9fafb;
+      background: #e6e8ea94;
       tr > th {
         font-weight: 500;
         font-size: 0.9rem;
@@ -26,15 +26,22 @@
           width: 20%;
         }
         &:nth-of-type(3) {
+          font-weight: 700;
           width: 10%;
         }
         &:nth-of-type(4) {
+          font-weight: 700;
+
           width: 10%;
         }
         &:nth-of-type(5) {
+          font-weight: 700;
+
           width: 10%;
         }
         &:nth-of-type(6) {
+          font-weight: 700;
+
           width: 10%;
         }
         &:nth-of-type(7) {
@@ -54,6 +61,23 @@
           font-weight: 400;
           font-size: 0.9rem;
           border-bottom: 1px solid #eaecf0;
+
+          &:nth-of-type(3) {
+            font-weight: 500;
+            background: #f9fafb;
+          }
+          &:nth-of-type(4) {
+            font-weight: 500;
+            background: #f9fafb;
+          }
+          &:nth-of-type(5) {
+            font-weight: 500;
+            background: #f9fafb;
+          }
+          &:nth-of-type(6) {
+            font-weight: 500;
+            background: #f9fafb;
+          }
 
           .active,
           .expired {

@@ -19,17 +19,17 @@ interface Props {
 
 const TableContainer: React.FC<Props> = ({ showData }) => {
   return (
-    <div className="TableContainer _card ">
+    <div className="TableContainer _card "  >
       <table className="">
         <thead>
           <tr>
             <th>File ID</th>
             <th>File Name</th>
-            <th>Car Size</th>
             {/* <th>Status</th> */}
-            <th>Piece CID</th>
-            <th>Piece SIze</th>
-            <th>CarFile Link</th>
+            <th>CarFile Link <br />(A1)</th>
+            <th>Piece SIze <br />(A2)</th>
+            <th>Car Size <br />(A3)</th>
+            <th>Piece CID <br />(A4) </th>
             <th></th>
           </tr>
         </thead>
@@ -39,6 +39,13 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
               <tr key={index}>
                 <td>{item?.id ? clipText(item?.id, 20, 6) : "-"}</td>
                 <td>{item?.fileName}</td>
+                  <td>
+                  {item?.id
+                    ? clipText(`${getCarLink(item?.id)}`, 20, 6)
+                    : "-"}
+                </td>
+                <td>{item?.pieceSize ? item?.pieceSize : "-"}</td>
+
                 <td>
                   <span className="fileSize">{item?.carSize}</span>
                 </td>
@@ -58,12 +65,7 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                 <td>
                   {item?.pieceCid ? clipText(item?.pieceCid, 20, 6) : "-"}
                 </td>
-                <td>{item?.pieceSize ? item?.pieceSize : "-"}</td>
-                <td>
-                  {item?.id
-                    ? clipText(`${getCarLink(item?.id)}`, 20, 6)
-                    : "-"}
-                </td>
+              
                 <td>
                   <span
                     className="icon ptr"
@@ -94,7 +96,7 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                           piece_CID: item?.pieceCid ? item?.pieceCid : "-",
                           piece_Size: item?.pieceSize ? item?.pieceSize : "-",
                           car_Link: `${getCarLink(item?.id)}`,
-                          car_Size: "",
+                          car_Size: item?.carSize ? item?.carSize : "-",
                         })
                       );
                     }}
