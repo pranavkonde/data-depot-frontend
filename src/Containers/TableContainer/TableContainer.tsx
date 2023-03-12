@@ -25,7 +25,7 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
           <tr>
             <th>File ID</th>
             <th>File Name</th>
-            <th>File Size</th>
+            <th>Car Size</th>
             {/* <th>Status</th> */}
             <th>Piece CID</th>
             <th>Piece SIze</th>
@@ -40,7 +40,7 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                 <td>{item?.id ? clipText(item?.id, 20, 6) : "-"}</td>
                 <td>{item?.fileName}</td>
                 <td>
-                  <span className="fileSize">{item?.fileSize}</span>
+                  <span className="fileSize">{item?.carSize}</span>
                 </td>
                 {/* <td>
                   {item?.fileStatus === "CAR Created" ? (

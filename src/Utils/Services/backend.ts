@@ -2,6 +2,7 @@ import axios from "axios";
 import { notify } from "./notification";
 import { BaseUrl } from "../Data/config";
 import axiosInstance from "./AxiosInterceptor";
+import Navigator from "../GlobalNavigation/navigationHistory";
 
 export const getUploads = async (pageNumber = 1) => {
   try {
@@ -20,7 +21,8 @@ export const deleteFile = async (fileId: string) => {
     let response = await axiosInstance.delete(
       `${BaseUrl}delete/delete_file?fileId=${fileId}`
     );
-    console.log(response);
+    response && notify(`File Deleted Sucessfully`, "success");
+    Navigator.push("/dashboard");
   } catch (error) {
     notify("Something went wrong", "error");
   }
