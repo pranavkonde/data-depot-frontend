@@ -60,8 +60,8 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                 </td>
                 <td>{item?.pieceSize ? item?.pieceSize : "-"}</td>
                 <td>
-                  {item?.pieceCid
-                    ? clipText(`${getCarLink(item?.pieceCid)}`, 20, 6)
+                  {item?.id
+                    ? clipText(`${getCarLink(item?.id)}`, 20, 6)
                     : "-"}
                 </td>
                 <td>
@@ -79,7 +79,7 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                     className="icon ptr"
                     onClick={() => {
                       downloadFileFromURL(
-                        `${getCarLink(item?.pieceCid)}`,
+                        `${getCarLink(item?.id)}`,
                         item?.fileName+'.car'
                       );
                     }}
@@ -93,7 +93,7 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                         JSON.stringify({
                           piece_CID: item?.pieceCid ? item?.pieceCid : "-",
                           piece_Size: item?.pieceSize ? item?.pieceSize : "-",
-                          car_Link: `${getCarLink(item?.pieceCid)}`,
+                          car_Link: `${getCarLink(item?.id)}`,
                           car_Size: "",
                         })
                       );

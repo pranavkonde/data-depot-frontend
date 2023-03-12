@@ -1,3 +1,4 @@
+import { BaseUrl } from "./../Data/config";
 import { notify } from "./notification";
 
 export function getGitHubUrl(from: string) {
@@ -44,8 +45,8 @@ export const copyToClipboard = (text: string) => {
   notify("Copied To Clipboard", "success");
 };
 
-export const getCarLink = (pieceCID: string) => {
-  return `https://data.lighthouse.storage/api/download/download_car?piece_cid=${pieceCID}.car`;
+export const getCarLink = (fileID: string) => {
+  return `${BaseUrl}download/download_car?fileId=${fileID}.car`;
 };
 
 export const downloadFileFromURL = async (

@@ -1,1 +1,1 @@
-export const BaseUrl = "https://data.lighthouse.storage/api/";
+export const BaseUrl = "https://data-depot.lighthouse.storage/api/";

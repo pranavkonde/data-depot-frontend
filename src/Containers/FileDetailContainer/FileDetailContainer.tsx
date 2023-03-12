@@ -6,12 +6,14 @@ import {
   bytesToString,
   copyToClipboard,
   downloadFileFromURL,
+  getCarLink,
 } from "../../Utils/Services/Other";
 import moment from "moment";
 
 function FileDetailContainer() {
   const { state } = useLocation();
   const data = state?.data;
+  console.log(data);
 
   return (
     <div className="FileDetailContainer">
@@ -148,9 +150,9 @@ function FileDetailContainer() {
       <div className="detailBox">
         <p className="detailBox__label">URL</p>
         <div className="detailBox__infoBox">
-          <p className="text">{`https://data.lighthouse.storage/api/download/download_car?piece_cid=${data?.pieceCid}.car`}</p>
+          <p className="text">{getCarLink(data?.id)}</p>
           <span className="icon" onClick={()=>{
-            copyToClipboard(`https://data.lighthouse.storage/api/download/download_car?piece_cid=${data?.pieceCid}.car`)
+            copyToClipboard(getCarLink(data?.id))
           }}>
             <MdOutlineContentCopy />
           </span>
@@ -162,12 +164,12 @@ function FileDetailContainer() {
       </p>
 
       <div className="FileDetailContainer__buttonContainer">
-        {/* <button className="_buttonOutline" >Delete File</button> */}
+        <button className="_buttonOutline" >Delete File</button>
         <button
           className="_buttonFill"
           onClick={() => {
             downloadFileFromURL(
-              `https://data.lighthouse.storage/api/download/download_car?piece_cid=${data?.pieceCid}.car`,
+              getCarLink(data?.id),
               data?.fileName+'.car'
             );
           }}

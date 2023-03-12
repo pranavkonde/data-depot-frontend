@@ -15,6 +15,17 @@ export const getUploads = async (pageNumber = 1) => {
   }
 };
 
+export const deleteFile = async (fileId: string) => {
+  try {
+    let response = await axios.delete(
+      `${BaseUrl}delete/delete_file?fileId=${fileId}`
+    );
+    console.log(response);
+  } catch (error) {
+    notify("Something went wrong", "error");
+  }
+};
+
 export const uploadFile = async (
   uploadedFiles: any[],
   setUploadedProgress: any
