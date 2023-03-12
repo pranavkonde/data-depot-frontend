@@ -77,9 +77,9 @@ function FileDetailContainer() {
 
       <div className="splitBox">
         <div className="detailBox">
-          <p className="detailBox__label">File Size</p>
+          <p className="detailBox__label">CAR Size</p>
           <div className="detailBox__infoBox">
-            <p className="text">{bytesToString(data?.fileSize)}</p>
+            <p className="text">{bytesToString(data?.carSize)}</p>
             <span
               className="icon"
               onClick={() => {
@@ -173,7 +173,7 @@ function FileDetailContainer() {
           onClick={() => {
             downloadFileFromURL(
               getCarLink(data?.id),
-              data?.fileName+'.car'
+              data?.id+'.car'
             );
           }}
         >

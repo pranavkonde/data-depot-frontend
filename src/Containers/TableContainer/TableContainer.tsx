@@ -80,7 +80,7 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                     onClick={() => {
                       downloadFileFromURL(
                         `${getCarLink(item?.id)}`,
-                        item?.fileName+'.car'
+                        item?.id+'.car'
                       );
                     }}
                   >
