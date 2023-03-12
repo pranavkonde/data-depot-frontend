@@ -79,11 +79,11 @@ function FileDetailContainer() {
         <div className="detailBox">
           <p className="detailBox__label">CAR Size</p>
           <div className="detailBox__infoBox">
-            <p className="text">{bytesToString(data?.carSize)}</p>
+            <p className="text">{data?.carSize+' B'}</p>
             <span
               className="icon"
               onClick={() => {
-                copyToClipboard(bytesToString(data?.fileSize));
+                copyToClipboard(data?.carSize + ' B');
               }}
             >
               <MdOutlineContentCopy />
@@ -94,11 +94,11 @@ function FileDetailContainer() {
         <div className="detailBox">
           <p className="detailBox__label">Piece Size</p>
           <div className="detailBox__infoBox">
-            <p className="text">{bytesToString(data?.pieceSize)}</p>
+            <p className="text">{data?.pieceSize + ' B'}</p>
             <span
               className="icon"
               onClick={() => {
-                copyToClipboard(bytesToString(data?.pieceSize));
+                copyToClipboard(`${data?.pieceSize} B`);
               }}
             >
               <MdOutlineContentCopy />
@@ -129,7 +129,7 @@ function FileDetailContainer() {
           <div className="detailBox__infoBox">
             <p className="text">
               {moment(data?.createdAt)
-                .add(7, "days")
+                .add(30, "days")
                 .format("DD-MM-YYYY h:mm:ss")}
             </p>
             <span

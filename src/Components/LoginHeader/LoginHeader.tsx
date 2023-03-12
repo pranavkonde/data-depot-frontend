@@ -31,7 +31,7 @@ function LoginHeader() {
             }}>Logout</p>
           </div>}
         >
-          <div onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+          <div onClick={() => setIsPopoverOpen(!isPopoverOpen)} className={"_ptr"}>
              <FaUser />
           </div>
         </Popover>

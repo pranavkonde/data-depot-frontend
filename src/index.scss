@@ -21,6 +21,10 @@ body {
   font-family: $mainFont;
 }
 
+._ptr {
+  cursor: pointer;
+}
+
 ._container {
   padding: 1rem 10%;
   @include for-size(phone-only) {
