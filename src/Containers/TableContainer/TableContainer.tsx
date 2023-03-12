@@ -9,14 +9,15 @@ import {
   clipText,
   copyToClipboard,
   downloadFileFromURL,
+  getCarLink,
 } from "../../Utils/Services/Other";
 import "./TableContainer.scss";
 
 interface Props {
-  filesData: any[];
+  showData: any[];
 }
 
-const TableContainer: React.FC<Props> = ({ filesData }) => {
+const TableContainer: React.FC<Props> = ({ showData }) => {
   return (
     <div className="TableContainer _card ">
       <table className="">
@@ -25,7 +26,7 @@ const TableContainer: React.FC<Props> = ({ filesData }) => {
             <th>File ID</th>
             <th>File Name</th>
             <th>File Size</th>
-            <th>Status</th>
+            {/* <th>Status</th> */}
             <th>Piece CID</th>
             <th>Piece SIze</th>
             <th>CarFile Link</th>
@@ -33,17 +34,15 @@ const TableContainer: React.FC<Props> = ({ filesData }) => {
           </tr>
         </thead>
         <tbody>
-          {filesData &&
-            filesData?.map((item, index) => (
+          {showData &&
+            showData?.map((item, index) => (
               <tr key={index}>
                 <td>{item?.id ? clipText(item?.id, 20, 6) : "-"}</td>
                 <td>{item?.fileName}</td>
                 <td>
-                  <span className="fileSize">
-                    {bytesToString(item?.fileSize)}
-                  </span>
+                  <span className="fileSize">{item?.fileSize}</span>
                 </td>
-                <td>
+                {/* <td>
                   {item?.fileStatus === "CAR Created" ? (
                     <span className="active">
                       <GoPrimitiveDot />
@@ -55,20 +54,14 @@ const TableContainer: React.FC<Props> = ({ filesData }) => {
                       &nbsp;Expired
                     </span>
                   )}
-                </td>
+                </td> */}
                 <td>
                   {item?.pieceCid ? clipText(item?.pieceCid, 20, 6) : "-"}
                 </td>
-                <td>
-                  {item?.pieceSize ? bytesToString(item?.pieceSize) : "-"}
-                </td>
+                <td>{item?.pieceSize ? item?.pieceSize : "-"}</td>
                 <td>
                   {item?.pieceCid
-                    ? clipText(
-                        `https://data.lighthouse.storage/api/download/download_car?piece_cid=${item?.pieceCid}`,
-                        20,
-                        6
-                      )
+                    ? clipText(`${getCarLink(item?.pieceCid)}`, 20, 6)
                     : "-"}
                 </td>
                 <td>
@@ -86,7 +79,7 @@ const TableContainer: React.FC<Props> = ({ filesData }) => {
                     className="icon ptr"
                     onClick={() => {
                       downloadFileFromURL(
-                        `https://data.lighthouse.storage/api/download/download_car?piece_cid=${item?.pieceCid}.car`,
+                        `${getCarLink(item?.pieceCid)}`,
                         item?.fileName
                       );
                     }}
@@ -96,7 +89,14 @@ const TableContainer: React.FC<Props> = ({ filesData }) => {
                   <span
                     className="icon ptr"
                     onClick={() => {
-                      copyToClipboard(JSON.stringify(item));
+                      copyToClipboard(
+                        JSON.stringify({
+                          piece_CID: item?.pieceCid ? item?.pieceCid : "-",
+                          piece_Size: item?.pieceSize ? item?.pieceSize : "-",
+                          car_Link: `${getCarLink(item?.pieceCid)}`,
+                          car_Size: "",
+                        })
+                      );
                     }}
                   >
                     <BiCopy />

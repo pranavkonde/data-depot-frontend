@@ -4,7 +4,7 @@ import "./Footer.scss";
 function Footer() {
   return (
     <div className="Footer">
-      <div className="Footer__upperContainer _container">
+      {/* <div className="Footer__upperContainer _container">
         <div className="brandContainer columnContainer">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
@@ -32,7 +32,7 @@ function Footer() {
           <p>Product</p>
           <p>Product</p>
         </div>
-      </div>
+      </div> */}
       <div className="Footer__lowerContainer _container">
         <p>© 2023. All rights reserved.</p>
       </div>

@@ -8,10 +8,10 @@ import CsvDownloadButton from 'react-json-to-csv'
 interface Props {
   userDetails: any;
   filesData: any[];
-  filteredFilesData: any[];
+  showData: any[];
 }
 
-const StatBox: React.FC<Props> = ({ userDetails, filesData,filteredFilesData }) => {
+const StatBox: React.FC<Props> = ({ userDetails, filesData,showData }) => {
   const [statData, setStatData] = useState<any>({});
   useEffect(() => {
     let activeFiles = filesData.filter(
@@ -19,7 +19,7 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,filteredFilesData }) 
     );
     let object = {
       totalFiles: userDetails?.data?.filesUploaded,
-      totalData: bytesToString(userDetails?.data?.dataUploaded),
+      totalData: userDetails?.data?.dataUploaded,
       activePercentage: (
         (activeFiles?.length / filesData?.length) *
         100
@@ -38,8 +38,8 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,filteredFilesData }) 
           <div className="detailBox_stat">
             <p className="label">Total Data Uploaded</p>
             <p className="stat">
-              {statData?.totalData?.split(" ")[0]}&nbsp;
-              <small>{statData?.totalData?.split(" ")[1]}</small>
+              {statData?.totalData}&nbsp;
+              <small>{'B'}</small>
             </p>
           </div>
           <div className="detailBox_stat">
@@ -47,13 +47,13 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,filteredFilesData }) 
             <p className="stat">{statData?.totalFiles}</p>
           </div>
 
-          <div className="detailBox_stat">
+          {/* <div className="detailBox_stat">
             <p className="label">Active Percentage</p>
             <p className="stat">
               {statData?.activePercentage}
               <small>%</small>
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="StatBox__ButtonBox">
@@ -65,7 +65,7 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,filteredFilesData }) 
         >
           Upload New File
         </button>
-        <CsvDownloadButton className="_buttonOutline" data={filteredFilesData} >
+        <CsvDownloadButton className="_buttonOutline" data={showData} >
           Download CSV 
         </CsvDownloadButton>
 

@@ -8,6 +8,7 @@ import "./Dashboard.scss";
 function Dashboard() {
  const [filesData, setFilesData] = useState<any[]>([]); 
  const [filteredFilesData, setFilteredFilesData] = useState<any[]>([]); 
+ const [showData, setShowData] = useState<any[]>([]); 
  const [userDetails, setUserDetails] = useState<any[]>([]); 
 
 useEffect(() => {
@@ -29,10 +30,10 @@ useEffect(() => {
   return (
     <div className="Dashboard _container">
       <p className="_titleText">Dashboard</p>
-      <StatBox userDetails={userDetails} filesData={filesData} filteredFilesData={filteredFilesData} />
+      <StatBox userDetails={userDetails} filesData={filesData} showData={showData} />
       <FilterTab filesData={filesData} setFilteredFilesData={setFilteredFilesData}/>
-      <TableContainer filesData={filteredFilesData} />
-      <Pagination />
+      <TableContainer showData={showData} />
+      <Pagination setShowData={setShowData} filteredFilesData={filteredFilesData} />
       {/* <UploadBar /> */}
     </div>
   );

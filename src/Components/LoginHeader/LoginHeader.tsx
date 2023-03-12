@@ -24,7 +24,7 @@ function LoginHeader() {
            onClickOutside={() => setIsPopoverOpen(false)}
        
           content={<div className="ProfileDropdown">
-            <p className="ProfileDropdown__user">Arpit_B</p>
+            {/* <p className="ProfileDropdown__user">Arpit_B</p> */}
             <p className="ProfileDropdown__logout _buttonOutline"
             onClick={()=>{
               logout()

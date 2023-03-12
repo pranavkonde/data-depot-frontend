@@ -52,7 +52,7 @@ const FilterTab: React.FC<Props> = ({ filesData, setFilteredFilesData }) => {
 
   return (
     <div className="FilterTab _card">
-      <div className="FilterTab__TabBox">
+      {/* <div className="FilterTab__TabBox">
         <div
           className={activeTab === "all" ? "tab active" : "tab"}
           onClick={() => setActiveTab("all")}
@@ -71,7 +71,7 @@ const FilterTab: React.FC<Props> = ({ filesData, setFilteredFilesData }) => {
         >
           Expired URLs
         </div>
-      </div>
+      </div> */}
       <div className="FilterTab__SearchBox">
         <input type="text" placeholder="Search" ref={filterInput} />
         <button
