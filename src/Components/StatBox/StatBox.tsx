@@ -19,7 +19,7 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,showData }) => {
     );
     let object = {
       totalFiles: userDetails?.data?.filesUploaded,
-      totalData: userDetails?.data?.dataUploaded,
+      totalData: bytesToString(userDetails?.data?.dataUploaded),
       activePercentage: (
         (activeFiles?.length / filesData?.length) *
         100
@@ -38,8 +38,8 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,showData }) => {
           <div className="detailBox_stat">
             <p className="label">Total Data Uploaded</p>
             <p className="stat">
-              {statData?.totalData}&nbsp;
-              <small>{'B'}</small>
+              {statData?.totalData?.split(' ')[0]}&nbsp;
+              <small>{statData?.totalData?.split(' ')[1]}</small> / <small>100 GB</small>
             </p>
           </div>
           <div className="detailBox_stat">
