@@ -53,15 +53,11 @@ export const downloadFileFromURL = async (
   url: string,
   filename = "untitled"
 ) => {
-  await fetch(url)
-    .then((response) => response.blob())
-    .then((blob) => {
       const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = filename;
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noreferrer';
       link.click();
-    })
-    .catch(console.error);
 };
 
 export const clipText = (text: string, limit: number, subStringLength = 6) => {

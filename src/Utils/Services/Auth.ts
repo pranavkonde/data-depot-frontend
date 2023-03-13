@@ -5,7 +5,7 @@ import Navigator from "../GlobalNavigation/navigationHistory";
 export async function login(code: string) {
   try {
     const response = await axios.get(
-      `https://data.lighthouse.storage/api/auth/oauth/github?code=${code}`
+      `https://data-depot.lighthouse.storage/api/auth/oauth/github?code=${code}`
     );
     if (response?.status === 200) {
       let todayDate = new Date();
