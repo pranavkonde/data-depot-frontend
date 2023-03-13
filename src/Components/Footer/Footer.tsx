@@ -34,7 +34,7 @@ function Footer() {
         </div>
       </div> */}
       <div className="Footer__lowerContainer _container">
-        <p>© 2023. All rights reserved &nbsp;|&nbsp; Made by <a href="https://www.lighthouse.storage/" target={"_blank"}>Lighthouse</a> with Love ❤️</p>
+        <p>© 2023. All rights reserved &nbsp;|&nbsp; Made by <a href="https://www.lighthouse.storage/" target={"_blank"}>Lighthouse</a> with ❤️</p>
       </div>
     </div>
   );
