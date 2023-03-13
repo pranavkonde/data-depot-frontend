@@ -13,22 +13,26 @@ interface Props {
 
 const StatBox: React.FC<Props> = ({ userDetails, filesData,showData }) => {
   const [statData, setStatData] = useState<any>({});
+  const [downloadData, setDownloadData] = useState<any[]>([]);
   useEffect(() => {
-    let activeFiles = filesData.filter(
-      (item) => item?.fileStatus === "CAR Created"
-    );
+ 
     let object = {
       totalFiles: userDetails?.data?.filesUploaded,
       totalData: bytesToString(userDetails?.data?.dataUploaded),
-      activePercentage: (
-        (activeFiles?.length / filesData?.length) *
-        100
-      ).toFixed(1),
     };
     setStatData(object);
 
     return () => {};
   }, [userDetails, filesData]);
+
+  useEffect(()=>{
+    let newArr = [...showData];
+    newArr.forEach((item)=> delete item?.userName);
+   setDownloadData(newArr);
+
+  },[showData])
+
+
 
   return (
     <div className="StatBox">
@@ -65,11 +69,10 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,showData }) => {
         >
           Upload New File
         </button>
-        <CsvDownloadButton className="_buttonOutline" data={showData} >
+        <CsvDownloadButton className="_buttonOutline" data={downloadData} >
           Download CSV 
         </CsvDownloadButton>
 
-        {/* <button className="_buttonOutline">Dummy Button</button> */}
       </div>
     </div>
   );

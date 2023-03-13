@@ -11,10 +11,8 @@ function LoginHeader() {
   return (
     <div className="LoginHeader _container">
       <div className="LoginHeader__brandContainer">
-        {/* <span>
-                <HiOutlineMenu/>
-            </span> */}
         <img src="/filecoin_dark.png" alt="logo" />
+          <p>Filecoin Virtual Machine</p>
       </div>
       <div className="LoginHeader__profileContainer">
        
