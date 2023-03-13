@@ -1,3 +1,6 @@
+@import "/src/Styles/_variables";
+@import "/src/Styles/_mediaQuery";
+
 .LoginHeader {
   width: 100%;
   display: flex;
@@ -6,19 +9,27 @@
   background: #f6f8f9;
 
   &__brandContainer {
+    width: fit-content;
+    height: auto;
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    justify-content: center;
     align-items: center;
+    color: #0a0808;
+    gap: 1rem;
 
-    span {
-      display: flex;
-      color: #b0babf;
-    }
     img {
-      width: 150px;
+      width: 30px;
       height: auto;
+      @include for-size(phone-only) {
+        width: 25px;
+      }
+    }
+    p {
+      font-size: 1.2rem;
+      font-family: $logoFont;
+
+      @include for-size(phone-only) {
+        font-size: 1rem;
+      }
     }
   }
 

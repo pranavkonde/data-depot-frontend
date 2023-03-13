@@ -1,3 +1,4 @@
+import { BaseUrl } from "./../Data/config";
 import { notify } from "./notification";
 import axios from "axios";
 import Navigator from "../GlobalNavigation/navigationHistory";
@@ -5,7 +6,7 @@ import Navigator from "../GlobalNavigation/navigationHistory";
 export async function login(code: string) {
   try {
     const response = await axios.get(
-      `https://data-depot.lighthouse.storage/api/auth/oauth/github?code=${code}`
+      `${BaseUrl}auth/oauth/github?code=${code}`
     );
     if (response?.status === 200) {
       let todayDate = new Date();

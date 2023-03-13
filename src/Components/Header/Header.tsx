@@ -11,6 +11,7 @@ const Header: React.FC<HeaderProps> = ({ setLoginDialog }) => {
     <div className="Header _container">
       <div className="Header__logo">
         <img src="/filecoin.png" alt="logo" />
+        <p>Filecoin Virtual Machine</p>
       </div>
       <div className="Header__loginContainer">
         <button onClick={() => setLoginDialog(true)}>Login</button>

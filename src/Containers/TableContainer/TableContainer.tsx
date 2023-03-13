@@ -12,24 +12,43 @@ import {
   getCarLink,
 } from "../../Utils/Services/Other";
 import "./TableContainer.scss";
+import { Tooltip } from 'react-tooltip'
+
 
 interface Props {
   showData: any[];
 }
 
 const TableContainer: React.FC<Props> = ({ showData }) => {
+  const openFile = (item:any) => {
+    Navigator.push(`/dashboard/view-file/${item?.id}`, {
+      state: { data: item },
+    });
+  };
   return (
-    <div className="TableContainer _card "  >
+    <div className="TableContainer _card ">
       <table className="">
         <thead>
           <tr>
             <th>File ID</th>
             <th>File Name</th>
             {/* <th>Status</th> */}
-            <th>CarFile Link <br />(A1)</th>
-            <th>Piece SIze <br />(A2)</th>
-            <th>Car Size <br />(A3)</th>
-            <th>Piece CID <br />(A4) </th>
+            <th>
+              CarFile Link <br />
+              (A1)
+            </th>
+            <th>
+              Piece SIze <br />
+              (A2)
+            </th>
+            <th>
+              Car Size <br />
+              (A3)
+            </th>
+            <th>
+              Piece CID <br />
+              (A4){" "}
+            </th>
             <th></th>
           </tr>
         </thead>
@@ -37,37 +56,23 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
           {showData &&
             showData?.map((item, index) => (
               <tr key={index}>
-                <td>{item?.id ? clipText(item?.id, 20, 6) : "-"}</td>
-                <td>{item?.fileName}</td>
-                  <td>
-                  {item?.id
-                    ? clipText(`${getCarLink(item?.id)}`, 20, 6)
-                    : "-"}
+                <td onClick={() => {openFile(item)}}>{item?.id ? clipText(item?.id, 20, 6) : "-"}</td>
+                <td onClick={() => {openFile(item)}}>{item?.fileName}</td>
+                <td onClick={() => {openFile(item)}}>
+                  {item?.id ? clipText(`${getCarLink(item?.id)}`, 20, 6) : "-"}
                 </td>
-                <td>{item?.pieceSize ? item?.pieceSize : "-"}</td>
+                <td onClick={() => {openFile(item)}}>{item?.pieceSize ? item?.pieceSize : "-"}</td>
 
-                <td>
+                <td onClick={() => {openFile(item)}}>
                   <span className="fileSize">{item?.carSize}</span>
                 </td>
-                {/* <td>
-                  {item?.fileStatus === "CAR Created" ? (
-                    <span className="active">
-                      <GoPrimitiveDot />
-                      &nbsp;Active
-                    </span>
-                  ) : (
-                    <span className="expired">
-                      <GoPrimitiveDot />
-                      &nbsp;Expired
-                    </span>
-                  )}
-                </td> */}
-                <td>
+
+                <td onClick={() => {openFile(item)}}>
                   {item?.pieceCid ? clipText(item?.pieceCid, 20, 6) : "-"}
                 </td>
-              
+
                 <td>
-                  <span
+                  {/* <span
                     className="icon ptr"
                     onClick={() => {
                       Navigator.push(`/dashboard/view-file/${item?.id}`, {
@@ -76,19 +81,21 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                     }}
                   >
                     <MdOutlineVisibility />
-                  </span>
+                  </span> */}
                   <span
+                  data-tooltip-id="iconTooltip" data-tooltip-content="Download CAR File"
                     className="icon ptr"
                     onClick={() => {
                       downloadFileFromURL(
                         `${getCarLink(item?.id)}`,
-                        item?.id+'.car'
+                        item?.id + ".car"
                       );
                     }}
                   >
                     <BiDownload />
                   </span>
                   <span
+                      data-tooltip-id="iconTooltip" data-tooltip-content="Copy JSON"
                     className="icon ptr"
                     onClick={() => {
                       copyToClipboard(
@@ -108,6 +115,8 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
             ))}
         </tbody>
       </table>
+      <Tooltip id="iconTooltip" />
+
     </div>
   );
 };

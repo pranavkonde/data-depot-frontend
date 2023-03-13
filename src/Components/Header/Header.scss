@@ -10,9 +10,25 @@
   &__logo {
     width: fit-content;
     height: auto;
+    display: flex;
+    align-items: center;
+    color: #e7e8ec;
+    gap: 1rem;
     img {
-      width: 200px;
+      width: 30px;
       height: auto;
+      @include for-size(phone-only) {
+        width: 25px;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-family: $logoFont;
+
+      @include for-size(phone-only) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -25,6 +41,9 @@
       background: transparent;
       border-radius: 10px;
       cursor: pointer;
+      @include for-size(phone-only) {
+        padding: 0.5rem 1.5rem;
+      }
     }
   }
 }
