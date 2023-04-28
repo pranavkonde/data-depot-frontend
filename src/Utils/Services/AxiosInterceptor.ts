@@ -1,11 +1,15 @@
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
 import { getAccessToken } from "./Auth";
+const appMode = (import.meta.env.VITE_APP_APPMODE as string) || null;
+const accessToken = (import.meta.env.VITE_APP_ACCESS_TOKEN as string) || null;
+console.log(appMode, accessToken);
 
 const axiosInstance = axios.create();
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = getAccessToken();
+    const token = appMode === "Dev" ? accessToken : getAccessToken();
+    console.log(token);
     config.headers["Authorization"] = "Bearer " + token;
     return config;
   },

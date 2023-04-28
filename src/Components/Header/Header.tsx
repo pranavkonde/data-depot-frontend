@@ -1,5 +1,9 @@
 import React from 'react';
 import './Header.scss';
+const appMode = (import.meta.env.VITE_APP_APPMODE as string) || null;
+import Navigator from "../../Utils/GlobalNavigation/navigationHistory";
+
+
 
 
 interface HeaderProps {
@@ -14,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ setLoginDialog }) => {
         <p>Filecoin Virtual Machine</p>
       </div>
       <div className="Header__loginContainer">
-        <button onClick={() => setLoginDialog(true)}>Login</button>
+        <button onClick={() => {appMode === 'Dev'? Navigator.push('/dashboard') :setLoginDialog(true)}}>Login</button>
       </div>
     </div>
   );

@@ -1,9 +1,5 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsGithub } from "react-icons/bs";
-import { useLocation } from "react-router-dom";
-import { login } from "../../Utils/Services/Auth";
-import { getGitHubUrl } from "../../Utils/Services/Other";
 import "./LoginDialog.scss";
 
 function LoginDialog() {

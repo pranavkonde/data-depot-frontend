@@ -12,6 +12,7 @@ function Dashboard() {
  const [userDetails, setUserDetails] = useState<any[]>([]); 
 
 useEffect(() => {
+  console.log('instance Dashboard');
   (async () => {
     const response = await getUploads(1);
     if (response !== undefined && response?.status === 200) {
