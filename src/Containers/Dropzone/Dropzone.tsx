@@ -11,6 +11,7 @@ const Dropzone: React.FC<Props> =({setUploadProgress})=> {
   const onDrop = useCallback((acceptedFiles: any) => {
     // Do something with the files
     console.log(typeof acceptedFiles);
+    console.log(acceptedFiles);
     (async()=>{
       await uploadFile(acceptedFiles,setUploadProgress)
     })()
