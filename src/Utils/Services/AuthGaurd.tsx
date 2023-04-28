@@ -6,7 +6,7 @@ console.log(appMode);
 
 function AuthGaurd({ children, redirectTo }: any) {
   if (appMode === "Dev") {
-    return true;
+    return children;
   } else {
     return isLogin() ? children : <Navigate to={redirectTo} />;
   }

@@ -33,7 +33,6 @@ export const uploadFile = async (
   setUploadedProgress: any
 ) => {
   try {
-    console.log("Data to be Uploaded", uploadedFiles);
     var form = new FormData();
     uploadedFiles.map((item) => {
       form.append("file", item);
