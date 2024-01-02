@@ -3,10 +3,12 @@ import "./App.scss";
 import { Dashboard, LandingPage, LoginLayout, UploadNew } from "./Pages";
 import { FileView } from "./Pages/LoginPanel";
 import AuthGaurd from "./Utils/Services/AuthGaurd";
+import { DisclaimerBar } from "./Containers";
 
 function App() {
   return (
     <div className="App">
+      <DisclaimerBar/>
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/login" element={<LandingPage />}></Route>

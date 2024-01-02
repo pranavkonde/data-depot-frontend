@@ -15,6 +15,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
    <NavigationSetter />
+
     <App />
     <ToastContainer/>
   </BrowserRouter>,
