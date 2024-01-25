@@ -8,7 +8,7 @@ import { DisclaimerBar } from "./Containers";
 function App() {
   return (
     <div className="App">
-      <DisclaimerBar/>
+      {/* <DisclaimerBar/> */}
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/login" element={<LandingPage />}></Route>
