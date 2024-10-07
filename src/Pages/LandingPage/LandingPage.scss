@@ -2,6 +2,19 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  .disclaimerBar{
+    width: 100%;
+    height: 50px;
+    background: #101828;
+    p{
+      width: 100%;
+      text-align: center;
+      color: white;
+      a{
+        color: inherit;
+      }
+    }
+  }
 
   &__contentContainer {
     flex: 1;
