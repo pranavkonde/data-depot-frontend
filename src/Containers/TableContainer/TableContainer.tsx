@@ -32,7 +32,6 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
           <tr>
             <th>File ID</th>
             <th>File Name</th>
-            {/* <th>Status</th> */}
             <th>
               CarFile Link <br />
               (A1)
@@ -72,16 +71,6 @@ const TableContainer: React.FC<Props> = ({ showData }) => {
                 </td>
 
                 <td>
-                  {/* <span
-                    className="icon ptr"
-                    onClick={() => {
-                      Navigator.push(`/dashboard/view-file/${item?.id}`, {
-                        state: { data: item },
-                      });
-                    }}
-                  >
-                    <MdOutlineVisibility />
-                  </span> */}
                   <span
                   data-tooltip-id="iconTooltip" data-tooltip-content="Download CAR File"
                     className="icon ptr"

@@ -25,9 +25,6 @@ function LandingPage() {
 
   return (
     <div className="LandingPage">
-      {/* <div className="disclaimerBar">
-        <p>Please Note: The Data Depot service has been depreciated. For more info, reach out to us on our <a href="https://t.me/LighthouseStorage" target="_blank" rel="noopener noreferrer">Telegram group</a>.</p>
-      </div> */}
       <Header setLoginDialog={setLoginDialog} />
       <div className="LandingPage__contentContainer">
         <HeroSection />

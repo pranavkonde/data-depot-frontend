@@ -22,7 +22,6 @@ export function getCookieValue(key: string) {
 }
 
 export const bytesToString = (bytes: number) => {
-  // function takes in bytes and returns corresponding string value with suitable Prefix (KB,MB,GB)
   let incrementor = 0;
   let size = bytes;
   do {
@@ -40,7 +39,6 @@ export const bytesToString = (bytes: number) => {
 };
 
 export const copyToClipboard = (text: string) => {
-  // Allows user to copy the given text on clipboard
   navigator.clipboard.writeText(text);
   notify("Copied To Clipboard", "success");
 };

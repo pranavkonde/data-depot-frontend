@@ -23,7 +23,6 @@ useEffect(() => {
     if (userDetail !== undefined && userDetail?.status === 200) {
       setUserDetails(userDetail.data ?? {}); 
       
-      // setUserName(userDetail?.data)
     }
   })();
 }, []);
@@ -35,7 +34,6 @@ useEffect(() => {
       <FilterTab filesData={filesData} setFilteredFilesData={setFilteredFilesData}/>
       <TableContainer showData={showData} />
       <Pagination setShowData={setShowData} filteredFilesData={filteredFilesData} />
-      {/* <UploadBar /> */}
     </div>
   );
 }

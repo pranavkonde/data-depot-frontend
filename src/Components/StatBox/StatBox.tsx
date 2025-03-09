@@ -50,14 +50,6 @@ const StatBox: React.FC<Props> = ({ userDetails, filesData,showData }) => {
             <p className="label">Total Files Uploaded</p>
             <p className="stat">{statData?.totalFiles}</p>
           </div>
-
-          {/* <div className="detailBox_stat">
-            <p className="label">Active Percentage</p>
-            <p className="stat">
-              {statData?.activePercentage}
-              <small>%</small>
-            </p>
-          </div> */}
         </div>
       </div>
       <div className="StatBox__ButtonBox">

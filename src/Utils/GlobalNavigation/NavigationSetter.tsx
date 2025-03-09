@@ -3,7 +3,6 @@ import Navigator from "./navigationHistory";
 import  { FunctionComponent } from 'react'; 
 
 
-// Set NavigationSetter between BrowserRouter on index.js
 
 export const NavigationSetter: FunctionComponent = () => {
   Navigator.navigate = useNavigate();

@@ -18,7 +18,6 @@ const Header: React.FC<HeaderProps> = ({ setLoginDialog }) => {
         <p>Filecoin Virtual Machine</p>
       </div>
       <div className="Header__loginContainer">
-        {/* <button disabled={true} style={{opacity:0.5}}>Login</button> */}
         <button disabled={false} style={{cursor:'pointer'}} onClick={() => {appMode === 'Dev'? Navigator.push('/dashboard') :setLoginDialog(true)}}>Login</button>
       </div>
     </div>
